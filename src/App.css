@@ -1,0 +1,94 @@
+.App {
+  align-items: center;
+  justify-content: center;
+}
+body {
+  background-color: #cbcbf3;
+}
+title h1 {
+  color: #3a3a3a;
+  text-align: center;
+  margin: 30px 0;
+  font-weight: 700;
+}
+form {
+  max-width: 500px;
+  margin: 0 auto;
+  background: white;
+  padding: 10px 20px;
+  margin-top: 50px;
+  border-radius: 5px;
+}
+form h3 {
+  text-align: center;
+}
+form input {
+  width: 100%;
+  padding: 10px 5px;
+  outline: none;
+  font-size: 16px;
+  font-weight: 500;
+}
+.input_container {
+  margin-bottom: 20px;
+}
+.todo_container {
+  width: 40%;
+  margin: 0 auto;
+}
+.todo {
+  margin-top: 20px;
+  background: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.todo input {
+  cursor: pointer;
+  width: 50%;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  font-size: 28px;
+  font-weight: 500;
+}
+.blackBtn {
+  padding: 10px;
+  border-radius: 8px;
+  background-color: black;
+  color: white;
+}
+.blackBtn:hover {
+  background-color: rgba(1, 1, 1, 0.8);
+}
+
+.info_spoiler {
+  border: 1px solid #000;
+}
+
+.TETST img {
+  width: 200px;
+  margin: 5px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  float: left;
+  display: border-box;
+}
+
+.showFilecollapse {
+  visibility: hidden;
+  display: none;
+}
+
+.showFileactive {
+  visibility: visible;
+  position: relative;
+}
+
+.expired {
+   color: red;
+}
+
