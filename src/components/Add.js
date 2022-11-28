@@ -4,10 +4,7 @@ import { collection, addDoc, Timestamp, serverTimestamp} from "firebase/firestor
 import '../App.less';
 import {ref, uploadBytes } from "firebase/storage";
 import {v4} from "uuid";
-
-
 import DatePicker from "react-datepicker";
-
 import "react-datepicker/dist/react-datepicker.css";
 
 export default function AddTodo() {
@@ -15,10 +12,30 @@ export default function AddTodo() {
   const [info, setInfo] = useState("");
   const [expiring, setStartDate] = useState(new Date());
   const day = Date.now() / 1000;
-
-
-
-
+/**
+ * 
+ * 
+ * 
+ * 
+ * @type {{uuid: string, title: string, info: string, completed: boolean, create: Timestamp, doneAt: Timestamp, expiring: Date}}
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ */
   const handleSubmit = async (e) => {
     const Mainid = v4();
     e.preventDefault(); //запрещаею перезагрузку
@@ -30,7 +47,6 @@ export default function AddTodo() {
         completed: false, //тестовое значение
         create: new Timestamp(day.toString().split(".")[0], day.toString().split(".")[1]),
         doneAt: new Timestamp(0,0),
-        // timestamp: firebase.firestore.FieldValue.serverTimestamp(),
         expiring,
       });
       setTitle(""); //очищаю инпутs
@@ -75,6 +91,7 @@ const fileUpload = (uuid) => {
           value={info}
           onChange={(e) => setInfo(e.target.value)}
         />
+
         {/* //загрузка */}
         <input type="file"
         className="input_file"

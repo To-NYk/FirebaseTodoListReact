@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { storage } from "../firebase";
-import { getStorage, ref, getDownloadURL, listAll } from "firebase/storage";
+import { ref, getDownloadURL, listAll } from "firebase/storage";
 
 export default function Generate(props) {
     const [imageList, setImageList] = useState([]);
