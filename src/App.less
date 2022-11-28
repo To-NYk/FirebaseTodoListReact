@@ -34,7 +34,6 @@ form {
 form h3 {
   text-align: center;
 }
-
 .input_container {
   margin-bottom: 20px;
 }
@@ -65,7 +64,6 @@ form h3 {
   font-size: 28px;
   font-weight: 500;
 }
-
 .TETST img {
   height: 120px;
   margin-bottom: 5px;
@@ -132,7 +130,7 @@ form h3 {
   display: flex;
   width: auto;
   align-items: center;
-  left: 0;
+  margin-left: 6%;
   font-size: 15px;
 }
 .downloadURLdoc span {
@@ -144,37 +142,32 @@ form h3 {
   margin-right: 10px;
 }
 span img {
-  justify-content: space-between;
-  width: auto;
-  align-items: center;
-  left: 0;
-  font-size: 15px;
-  margin-right: 10px;
+  margin-left: 26%;
 }
 input[type="file"] {
   font-size: 0.9em;
   padding: 5px;
   margin-top: 15px;
-  border-radius:10px;
+  border-radius: 10px;
   border: none;
-  color: var(--input-text-color-file)
+  color: var(--input-text-color-file);
 }
-.input_title, .input_title:focus{
+.input_title,
+.input_title:focus {
   padding: 5px;
   outline: 3px solid transparent;
-  border-radius:10px;
+  border-radius: 10px;
   margin-right: 10px;
 }
-.input_info, .input_info:focus {
+.input_info,
+.input_info:focus {
   padding: 5px;
   outline: 3px solid transparent;
-  border-radius:10px;
+  border-radius: 10px;
 }
-
 .upload {
   margin-top: 10px;
 }
-
 .upload {
   padding: 10px;
   border-radius: 8px;
@@ -190,26 +183,30 @@ input[type="file"] {
   cursor: pointer;
   background-color: var(--button-hover-background-color);
 }
-
 .picker {
   margin-top: 15px;
-  border-radius:10px;
-  padding: 5px;;
+  border-radius: 10px;
+  padding: 5px;
 }
 ::-webkit-file-upload-button {
   background-color: var(--button-background-color-upload);
   color: white;
-  border-radius:10px;
-  padding: .7em;
+  border-radius: 10px;
+  padding: 0.7em;
   border: none;
+  transition: 1s;
 }
-
-a {text-decoration: none;}
+::-webkit-file-upload-button:hover {
+  background-color: var(--button-background-color-upload-hover);
+}
+a {
+  text-decoration: none;
+}
 
 .button-complete {
   padding: 8px;
   border-radius: 8px;
-  background-color: rgb(229, 156, 54);
+  background-color: #e59c36;
   color: black;
   display: inline-block;
   font-weight: 200;
@@ -221,7 +218,7 @@ a {text-decoration: none;}
 .button-edit {
   padding: 8px;
   border-radius: 8px;
-  background-color: rgb(102, 197, 102);
+  background-color: #66c566;
   color: black;
   display: inline-block;
   font-weight: 200;
@@ -233,11 +230,16 @@ a {text-decoration: none;}
 .button-delete {
   padding: 8px;
   border-radius: 8px;
-  background-color: rgb(200, 51, 51);
+  background-color: #c83333;
   color: black;
   display: inline-block;
   font-weight: 200;
   line-height: 1;
   cursor: pointer;
   border: 1px solid;
+}
+.switchbtn {
+  padding: 10px;
+  cursor: pointer;
+  font-family: 'Merriweather', serif;
 }
