@@ -127,6 +127,7 @@ form h3 {
   color: aquamarine;
 }
 .downloadURLdoc {
+  justify-content: center;
   display: flex;
   width: auto;
   align-items: center;
