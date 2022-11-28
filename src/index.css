@@ -1,13 +1,34 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+
+html[data-theme='dark']{
+  --button-text-color: rgb(255, 255, 255);
+  --button-background-color:rgb(97, 30, 30);
+  --button-border-color:rgb(64, 33, 33);
+
+  --input-text-color: rgb(225, 225, 108);
+  --input-placholder-text-color:#fff;
+  --input-background-color:rgb(50, 93, 70);
+  --input-border-color:rgb(221, 13, 13);
+
+  --background-color:#181818;
+  --background-color-form: rgb(192, 149, 85);
+  --icon-color-title:rgb(255, 255, 255);
+  --background-color-border: #fff;
+  
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+
+html[data-theme='light']{
+  --button-text-color: rgb(102, 147, 220);
+  --button-background-color:rgb(48, 215, 126);
+  --button-border-color:rgb(138, 167, 23);
+
+  --input-text-color: rgb(152, 49, 190);
+  --input-placholder-text-color:rgb(176, 8, 131);
+  --input-background-color:rgb(46, 154, 84);
+  --input-border-color:#fff;
+
+  --background-color:#2e7dc1;
+  --background-color-form: rgb(208, 198, 181);
+  --icon-color: rgb(99, 211, 13);
+  --background-color-border: rgb(44, 43, 43);
 }

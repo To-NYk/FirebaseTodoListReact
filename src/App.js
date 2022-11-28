@@ -15,15 +15,25 @@ import {
 } from "firebase/firestore";
 import { db, storage } from "./firebase";
 import './App.css';
-import { getStorage, ref, getDownloadURL, listAll } from "firebase/storage";
-
+import { useTheme } from './hooks/useTheme';
+//del
+import { ref, deleteObject, listAll } from "firebase/storage";
 
 function App() {
 
-  const [todos, setTodos] = useState([]);
+  const { theme, setTheme } = useTheme();
 
-  const day = Date.now()/1000;
-  
+  const handleLightThemeClick = () => {
+    setTheme('light')
+  };
+  const handleDarkThemeClick = () => {
+    setTheme('dark')
+  };
+
+
+  const [todos, setTodos] = useState([]);
+  const day = Date.now() / 1000;
+
   useEffect(() => {
     const q = query(collection(db, "todos"));
     const unsub = onSnapshot(q, (querySnapshot) => {
@@ -36,19 +46,37 @@ function App() {
     return () => unsub();
   }, []);
 
-  
+
 
   const handleEdit = async (todo, title) => {
     await updateDoc(doc(db, "todos", todo.id), { title: title });
   };
   const toggleComplete = async (todo) => {
-    await updateDoc(doc(db, "todos", todo.id), { completed: !todo.completed, doneAt: new Timestamp(day.toString().split(".")[0],day.toString().split(".")[1]) });
+    await updateDoc(doc(db, "todos", todo.id), { completed: !todo.completed, doneAt: new Timestamp(day.toString().split(".")[0], day.toString().split(".")[1]) });
   };
-  const handleDelete = async (id) => {
+  const handleDelete = async (id, uuid) => {
+    const folderRef = ref(storage, uuid + `/`)
     await deleteDoc(doc(db, "todos", id));
+    
+    listAll(folderRef).then((response) => {
+      console.log(response.items)
+      response.items.forEach((item) => { 
+        const storageRef = ref(storage, uuid + `/` +item.name);
+    // Delete the file
+     deleteObject(storageRef).then(() => {
+      // File deleted successfully
+      console.log("Файлы удалены!");
+    }).catch((error) => {
+      // Uh-oh, an error occurred!
+    });
+  })})
   };
   return (
     <div className="App">
+      <div className="btn-theme">
+        <button onClick={handleLightThemeClick}>Light</button>
+        <button onClick={handleDarkThemeClick}>Dark</button>
+      </div>
       <div>
         <Title />
       </div>
@@ -60,13 +88,13 @@ function App() {
       <div className="todo_container">
         {todos.map((todo) => (
           <>
-          <Todos
-            key={todo.id}
-            todo={todo}
-            toggleComplete={toggleComplete}
-            handleDelete={handleDelete}
-            handleEdit={handleEdit}
-          />
+            <Todos
+              key={todo.id}
+              todo={todo}
+              toggleComplete={toggleComplete}
+              handleDelete={handleDelete}
+              handleEdit={handleEdit}
+            />
           </>
         ))}
       </div>

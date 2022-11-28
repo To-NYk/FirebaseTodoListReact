@@ -6,7 +6,7 @@ export default function Todo({ todo, toggleComplete, handleDelete, handleEdit, }
 
   const [newTitle, setNewTitle] = useState(todo.title);
   const date = new Date(todo.doneAt.toDate()).toLocaleString();
-  const expiring = new Date(todo.expiring.toDate()).toLocaleString();
+  const expiring = new Date(todo.expiring.toDate());
   const zeroDate = new Date(new Timestamp(0, 0).toDate()).toLocaleString();
 
   const [isActive, setActive] = useState(false);
@@ -30,21 +30,22 @@ export default function Todo({ todo, toggleComplete, handleDelete, handleEdit, }
 
   return (
     <>
-      <div className="todo" onClick={toggleClass}>
+      <div className={expiring > Timestamp.now().toDate() ? 'todoAvailable' : 'todoUnavailable'}
+      onClick={toggleClass}>
         <input
-          style={{ textDecoration: todo.completed && "line-through" }}
+          style={{ textDecoration: todo.completed && "line-through"}}
           type="text"
           value={todo.title === "" ? newTitle : todo.title}
           className="list"
           onChange={handleChange} />
 
         <div className="time">
-          {date == zeroDate ? null : date}
+          {date == zeroDate ? null : `Завершено:  `+ date}
         </div >
 
-        <div className="info_spoiler">
+        {/* <div className="info_spoiler">
           {todo.info}
-        </div>
+        </div> */}
 
         <div>
           <button hidden={todo.completed} className="button-complete" onClick={() => toggleComplete(todo)}>
@@ -53,20 +54,20 @@ export default function Todo({ todo, toggleComplete, handleDelete, handleEdit, }
           <button hidden={todo.completed} className="button-edit" onClick={() => handleEdit(todo, newTitle)}>
             Изменить
           </button>
-          <button className="button-delete" onClick={() => handleDelete(todo.id)}>
+          <button className="button-delete" onClick={() => handleDelete(todo.id, todo.uuid)}>
             Удалить
           </button>
         </div>
 
       </div>
-
       <div
         className={isActive ? 'showFileactive' : 'showFilecollapse'}>
-       <span className={expiring > Timestamp.now() ? 'expired' : 'notexpired'}>
-          {expiring}
+       <span className={expiring < Timestamp.now().toDate() ? 'expired' : 'notexpired'}>
+          {expiring < Timestamp.now().toDate() ? "Истекло: " + expiring.toLocaleString() : expiring.toLocaleString()}
         </span>
-        <span>
-          {todo.info}
+        
+        <span className="info">
+          {todo.info== "" ? 'описание' : todo.info}
         </span>
         <Generate name={todo.uuid} />
       </div>

@@ -1,12 +1,17 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');
+* {
+  font-family: 'Merriweather', serif;
+}
 .App {
   align-items: center;
   justify-content: center;
 }
 body {
-  background-color: #cbcbf3;
+  background-color: var(--background-color);
 }
-title h1 {
-  color: #3a3a3a;
+h1 {
+  color: var(--icon-color-title);
   text-align: center;
   margin: 30px 0;
   font-weight: 700;
@@ -14,21 +19,25 @@ title h1 {
 form {
   max-width: 500px;
   margin: 0 auto;
-  background: white;
+  background: var(--background-color-form);
   padding: 10px 20px;
   margin-top: 50px;
-  border-radius: 5px;
+  border-radius: 15px;
 }
 form h3 {
   text-align: center;
 }
-form input {
+.form {
   width: 100%;
   padding: 10px 5px;
   outline: none;
   font-size: 16px;
   font-weight: 500;
 }
+
+/* .input_ {
+  background: #c3c3c3;
+} */
 .input_container {
   margin-bottom: 20px;
 }
@@ -36,14 +45,19 @@ form input {
   width: 40%;
   margin: 0 auto;
 }
-.todo {
+.todoUnavailable, .todoAvailable {
   margin-top: 20px;
-  background: white;
+  background: #fff;
   padding: 10px 20px;
-  border-radius: 5px;
+  border-radius: 5px 5px 0 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.todoUnavailable {
+  background-color: #fff;
+  z-index: -1;
 }
 .todo input {
   cursor: pointer;
@@ -57,38 +71,98 @@ form input {
 .blackBtn {
   padding: 10px;
   border-radius: 8px;
-  background-color: black;
+  background-color: var(--background-color);
   color: white;
 }
 .blackBtn:hover {
-  background-color: rgba(1, 1, 1, 0.8);
-}
-
-.info_spoiler {
-  border: 1px solid #000;
+  background-color: var(--background-color);
 }
 
 .TETST img {
-  width: 200px;
-  margin: 5px;
-  display: block;
+ 
+  height: 120px;
+  margin-bottom: 5px;
   margin-left: auto;
   margin-right: auto;
-  float: left;
-  display: border-box;
-}
 
+
+  /* display: grid;
+  grid-auto-flow: column; */
+}
+.TETST {
+  
+  justify-content: center;
+  margin-bottom: auto;
+  display: flex;
+}
 .showFilecollapse {
   visibility: hidden;
   display: none;
 }
 
 .showFileactive {
+  border: 1px solid var(--background-color-border);
+  background-color:#fff;
   visibility: visible;
   position: relative;
+  display: grid;
+/* 
+  grid-template-areas: "gridtitle gridtitle ." 
+                       "gridinfo gridfiles gridfiles" 
+                       "gridinfo gridfiles gridfiles"; */
+
+  /* justify-content: space-between; */
+  overflow: hidden;
+}
+.gridtitle {
+  grid-row: 1/2;
+
+}
+.gridinfo {
+  grid-row: 100px;
+  grid-auto-columns: 50px;
+
+}
+.gridfiles{
+  display: grid;
+  grid-row: 100px;
+  grid-auto-columns: auto;
+  align-items:center;
+  gap: 5px 20px;
 }
 
 .expired {
    color: red;
+   font-weight: 600;
+  margin-left: 0;
 }
 
+.info {
+  padding-top: 20px;
+  display: block;
+  margin-left: 0;
+  margin: 5px;
+  background-color: #fff;
+  padding: 5px;
+}
+
+.time {
+  display: inline-block;
+  padding: 5px;
+  margin-left: -50px;
+}
+
+.todoUnAvailable {
+  color:aquamarine;
+}
+
+.downloadURLdoc {
+  display: block;
+  width: auto;
+  align-items:center;
+  left: 0;
+}
+
+.downloadURLdoc span .img{
+  display: block;
+}

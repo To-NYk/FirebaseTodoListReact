@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { db, storage} from "../firebase";
-import { collection, addDoc, Timestamp } from "firebase/firestore";
+import { collection, addDoc, Timestamp, serverTimestamp} from "firebase/firestore";
 import '../App.less';
 import {ref, uploadBytes } from "firebase/storage";
 import {v4} from "uuid";
@@ -29,7 +29,8 @@ export default function AddTodo() {
         info,
         completed: false, //тестовое значение
         create: new Timestamp(day.toString().split(".")[0], day.toString().split(".")[1]),
-        doneAt: new Timestamp(0, 0),
+        doneAt: new Timestamp(0,0),
+        // timestamp: firebase.firestore.FieldValue.serverTimestamp(),
         expiring,
       });
       setTitle(""); //очищаю инпутs
@@ -49,7 +50,9 @@ const fileUpload = (uuid) => {
     uploadBytes(fileRef, fileZ[i]).then(() => {
     })
   }
-  alert("загружено");
+  if (fileZ.length > 0) {
+    alert("Файл загружен!");
+  }
 };
 
 
@@ -73,10 +76,10 @@ const fileUpload = (uuid) => {
         {/* //загрузка */}
         <input type="file" 
         onChange={(e) => setfileUpload(e.target.files)}
-        multiple="true"
+        multiple={true}
         />
         
-        <DatePicker selected={expiring} dateFormat="yyyy/MM/dd" locale="ru-RU" showTimeInput onChange={(e) => setStartDate(e)} />
+        <DatePicker selected={expiring} dateFormat="yyyy/MM/dd, HH:mm"  showTimeInput onChange={(e) => setStartDate(e)} />
         
       </div>
       <div className="button">
