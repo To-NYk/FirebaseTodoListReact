@@ -1,34 +1,38 @@
 
 html[data-theme='dark']{
-  --button-text-color: rgb(255, 255, 255);
-  --button-background-color:rgb(97, 30, 30);
-  --button-border-color:rgb(64, 33, 33);
 
-  --input-text-color: rgb(225, 225, 108);
-  --input-placholder-text-color:#fff;
-  --input-background-color:rgb(50, 93, 70);
-  --input-border-color:rgb(221, 13, 13);
-
+/* input type file */
+  --input-text-color-file:rgb(209, 204, 204);
+/* bg */
   --background-color:#181818;
-  --background-color-form: rgb(192, 149, 85);
+  /* form */
+  --background-color-form: #404040;
+
   --icon-color-title:rgb(255, 255, 255);
+
   --background-color-border: #fff;
-  
+  /* button upload */
+  --button-background-color: #000;
+    /* button upload but hover */
+  --button-hover-background-color: rgb(40, 40, 40);;
+  --button-background-color-upload: #000;;
 }
 
 
 html[data-theme='light']{
-  --button-text-color: rgb(102, 147, 220);
-  --button-background-color:rgb(48, 215, 126);
-  --button-border-color:rgb(138, 167, 23);
+  /* input type file */
+  --input-text-color-file:rgb(0, 0, 0);
+/* bg */
+  --background-color:#a0d2eb;
+  /* form */
+  --background-color-form: #e5eaf5;
 
-  --input-text-color: rgb(152, 49, 190);
-  --input-placholder-text-color:rgb(176, 8, 131);
-  --input-background-color:rgb(46, 154, 84);
-  --input-border-color:#fff;
+  --icon-color-title:rgb(255, 255, 255);
 
-  --background-color:#2e7dc1;
-  --background-color-form: rgb(208, 198, 181);
-  --icon-color: rgb(99, 211, 13);
-  --background-color-border: rgb(44, 43, 43);
+
+  /* button upload */
+  --button-background-color: #a28089;
+    /* button upload but hover */
+  --button-hover-background-color: #494d5f;
+  --button-background-color-upload: #a28089;
 }

@@ -47,7 +47,7 @@ export default function Todo({ todo, toggleComplete, handleDelete, handleEdit, }
           {todo.info}
         </div> */}
 
-        <div>
+        <div className="button_toggle">
           <button hidden={todo.completed} className="button-complete" onClick={() => toggleComplete(todo)}>
             завершить
           </button>

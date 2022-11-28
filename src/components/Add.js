@@ -61,6 +61,7 @@ const fileUpload = (uuid) => {
     <form onSubmit={handleSubmit}>
       <div className="input_">
         <input
+        className="input_title"
           type="text"
           placeholder="Новая задача... "
           value={title}
@@ -68,22 +69,24 @@ const fileUpload = (uuid) => {
         />
 
         <input
+        className="input_info"
           type="text"
           placeholder="описание"
           value={info}
           onChange={(e) => setInfo(e.target.value)}
         />
         {/* //загрузка */}
-        <input type="file" 
+        <input type="file"
+        className="input_file"
         onChange={(e) => setfileUpload(e.target.files)}
         multiple={true}
         />
         
-        <DatePicker selected={expiring} dateFormat="yyyy/MM/dd, HH:mm"  showTimeInput onChange={(e) => setStartDate(e)} />
+        <DatePicker className="picker"selected={expiring} dateFormat="yyyy/MM/dd, HH:mm"  showTimeInput onChange={(e) => setStartDate(e)} />
         
       </div>
       <div className="button">
-        <button >Добавить</button>
+        <button className="upload">Добавить</button>
       </div>
     </form>
   );
