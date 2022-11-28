@@ -74,8 +74,8 @@ function App() {
   return (
     <div className="App">
       <div className="btn-theme">
-        <button onClick={handleLightThemeClick}>Light</button>
-        <button onClick={handleDarkThemeClick}>Dark</button>
+        <button className="switchbtn" onClick={handleLightThemeClick}>Light</button>
+        <button className="switchbtn" onClick={handleDarkThemeClick}>Dark</button>
       </div>
       <div>
         <Title />

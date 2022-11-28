@@ -130,7 +130,7 @@ form h3 {
   display: flex;
   width: auto;
   align-items: center;
-  left: 0;
+  margin-left: 6%;
   font-size: 15px;
 }
 .downloadURLdoc span {
@@ -142,12 +142,7 @@ form h3 {
   margin-right: 10px;
 }
 span img {
-  justify-content: space-between;
-  width: auto;
-  align-items: center;
-  left: 0;
-  font-size: 15px;
-  margin-right: 10px;
+  margin-left: 26%;
 }
 input[type="file"] {
   font-size: 0.9em;
@@ -199,10 +194,15 @@ input[type="file"] {
   border-radius: 10px;
   padding: 0.7em;
   border: none;
+  transition: 1s;
+}
+::-webkit-file-upload-button:hover {
+  background-color: var(--button-background-color-upload-hover);
 }
 a {
   text-decoration: none;
 }
+
 .button-complete {
   padding: 8px;
   border-radius: 8px;
@@ -237,4 +237,9 @@ a {
   line-height: 1;
   cursor: pointer;
   border: 1px solid;
+}
+.switchbtn {
+  padding: 10px;
+  cursor: pointer;
+  font-family: 'Merriweather', serif;
 }

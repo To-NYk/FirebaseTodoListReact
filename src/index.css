@@ -16,6 +16,7 @@ html[data-theme='dark']{
     /* button upload but hover */
   --button-hover-background-color: rgb(40, 40, 40);;
   --button-background-color-upload: #000;;
+  --button-background-color-upload-hover: #a29bfe;
 }
 
 
@@ -35,4 +36,5 @@ html[data-theme='light']{
     /* button upload but hover */
   --button-hover-background-color: #494d5f;
   --button-background-color-upload: #a28089;
+  --button-background-color-upload-hover: #81ecec;
 }
